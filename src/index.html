@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>aframe-immersive-360-urban-night</title>
+<script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+</head>
+
+<body style="margin:0;">
+<a-scene background="color: #000">
+
+<!-- 360 img -->
+<a-assets>
+<img id="foto360" src="360.jpg" crossorigin="anonymous"/>
+</a-assets>
+<!-- 360 -->
+<a-sky src="#foto360" rotation="0 -90 0"></a-sky>
+
+<!-- camera -->
+<a-entity id="rig" position="0 1.6 0">
+<a-camera look-controls="pointerLockEnabled: true">
+</a-camera>
+</a-entity>
+
+<!-- geo marker -->
+<a-entity geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+material="color: white; shader: flat"
+position="0 1.6 -1">
+</a-entity>
+
+</a-scene>
+
+</body>
+</html>
