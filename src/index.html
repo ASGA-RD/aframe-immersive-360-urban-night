@@ -1,35 +1,133 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>aframe-immersive-360-urban-night</title>
-<script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>aframe-immersive-360-urban-night</title>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
 
-<body style="margin:0;">
-<a-scene background="color: #000">
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        const rig = document.querySelector("#rig");
 
-<!-- 360 img -->
-<a-assets>
-<img id="foto360" src="360.jpg" crossorigin="anonymous"/>
-</a-assets>
-<!-- 360 -->
-<a-sky src="#foto360" rotation="0 -90 0"></a-sky>
+        const lampHub = document.querySelector("#lamp-hub");
+        const lampLeft = document.querySelector("#lamp-left");
+        const lampRight = document.querySelector("#lamp-right");
 
-<!-- camera -->
-<a-entity id="rig" position="0 1.6 0">
-<a-camera look-controls="pointerLockEnabled: true">
-</a-camera>
-</a-entity>
+        const hint = document.querySelector("#hint");
 
-<!-- geo marker -->
-<a-entity geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-material="color: white; shader: flat"
-position="0 1.6 -1">
-</a-entity>
+        function teleport(x, z) {
+          const pos = rig.getAttribute("position");
+          rig.setAttribute("position", { x: x, y: pos.y, z: z });
+        }
 
-</a-scene>
+        lampHub.addEventListener("click", function () {
+          teleport(0, 0);
+        });
 
-</body>
+        lampLeft.addEventListener("click", function () {
+          teleport(-8, 0);
+        });
+
+        lampRight.addEventListener("click", function () {
+          teleport(8, 0);
+        });
+      });
+    </script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden">
+    <a-scene background="color: #000">
+      <!-- 360 img -->
+      <a-assets>
+        <img id="foto360" src="assets/360.jpg" crossorigin="anonymous" />
+        <a-asset-item
+          id="lampModel"
+          src="assets/central_park_lamppost.glb"
+        ></a-asset-item>
+      </a-assets>
+      <!-- 360 -->
+      <a-sky src="#foto360" rotation="0 -90 0"></a-sky>
+
+      <!-- geo marker -->
+      <a-entity
+        geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+        material="color: white; shader: flat"
+        position="0 0 0"
+      >
+      </a-entity>
+
+      <!-- rig + camera -->
+      <a-entity id="rig" position="0 0 0" scale="0.1 0.1 0.1">
+        <a-camera
+          wasd-controls-enabled="false"
+          look-controls="pointerLockEnabled: true"
+          fov="70"
+        >
+          <a-cursor
+            raycaster="objects: .clickable"
+            fuse="false"
+            material="color: white; shader: flat"
+            geometry="primitive: ring; radiusInner: 0.012; radiusOuter: 0.018"
+          >
+          </a-cursor>
+        </a-camera>
+      </a-entity>
+
+      <!-- LUZ AMBIENTE -->
+      <a-entity light="type: ambient; intensity: 0.35"></a-entity>
+
+      <!-- Helper -->
+      <a-entity
+        position="0 0.1 -2"
+        text="value: Dica: \n Clica nos candeeiros.; align: center; width: 2"
+      >
+      </a-entity>
+
+      <!-- HOTSPOT 1 -->
+      <a-entity
+        id="lamp-hub"
+        class="clickable"
+        gltf-model="#lampModel"
+        position="0 0 -3"
+        rotation="0 180 0"
+        scale="1 1 1"
+      >
+        <a-entity
+          light="type: point; intensity: 1.4; distance: 10; decay: 2"
+          position="0 3.2 0"
+        ></a-entity>
+      </a-entity>
+
+      <!-- HOTSPOT 2 -->
+      <a-entity
+        id="lamp-left"
+        class="clickable"
+        gltf-model="#lampModel"
+        position="-8 0 -3"
+        rotation="0 155 0"
+        scale="1 1 1"
+      >
+        <a-entity
+          light="type: point; intensity: 1.2; distance: 10; decay: 2"
+          position="0 3.2 0"
+        ></a-entity>
+      </a-entity>
+
+      <!-- HOTSPOT 3 -->
+      <a-entity
+        id="lamp-right"
+        class="clickable"
+        gltf-model="#lampModel"
+        position="8 0 -3"
+        rotation="0 205 0"
+        scale="1 1 1"
+      >
+        <a-entity
+          light="type: point; intensity: 1.2; distance: 10; decay: 2"
+          position="0 3.2 0"
+        ></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
 </html>
