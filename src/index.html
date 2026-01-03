@@ -25,7 +25,14 @@
         const generator = document.querySelector("#generator");
         const genSmoke = document.querySelector("#gen-smoke");
 
+        const luzesNatal = document.querySelectorAll("#luzes-natal a-sphere");
+
         genSmoke.setAttribute("visible", false);
+
+        // luzes
+        luzesNatal.forEach((luz) => {
+          luz.setAttribute("material", "emissiveIntensity", 0);
+        });
 
         function teleport(x, z) {
           const pos = rig.getAttribute("position");
@@ -86,6 +93,11 @@
 
           // visivel o smoke
           genSmoke.setAttribute("visible", true);
+
+          luzesNatal.forEach((luz) => {
+            // animação Blink_
+            luz.emit("startBlink");
+          });
         });
       });
     </script>
@@ -129,7 +141,7 @@
       <a-entity light="type: ambient; intensity: 0.35"></a-entity>
 
       <!-- helper -->
-      <a-entity position="0 3.5 -3">
+      <a-entity position="0 3.7 -3">
         <!-- fundo -->
         <a-plane width="2.6" height="0.8" color="#000" opacity="0.55"></a-plane>
 
@@ -137,7 +149,7 @@
         <a-entity
           position="0 0 0.01"
           text="
-      value: Dica:\nClica nos NPCs para te deslocares;
+      value: Vieste ajudar com as luzes? Nao sei o que se passa!\n\n'Dica:\nClica nos NPCs para te deslocares';
       align: center;
       width: 2.4;
       color: #FFF;
@@ -291,37 +303,43 @@
           position="-5 5.9 4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 0; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="-3 5.9 4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 500; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="-1 5.9 4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 0; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="1 5.9 4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 500; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="3 5.9 4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 0; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="5 5.9 4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 500; autoplay: false; startEvents: startBlink"
         ></a-sphere>
 
         <!-- x=6 -->
@@ -329,25 +347,29 @@
           position="6 5.9 3"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 0; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="6 5.9 1"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 500; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="6 5.9 -1"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 0; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="6 5.9 -3"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 500; autoplay: false; startEvents: startBlink"
         ></a-sphere>
 
         <!-- z=-4 -->
@@ -355,37 +377,43 @@
           position="5 5.9 -4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 0; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="3 5.9 -4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 500; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="1 5.9 -4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 0; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="-1 5.9 -4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 500; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="-3 5.9 -4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 0; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="-5 5.9 -4"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 500; autoplay: false; startEvents: startBlink"
         ></a-sphere>
 
         <!-- x=-6 -->
@@ -393,25 +421,29 @@
           position="-6 5.9 -3"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 0; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="-6 5.9 -1"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 500; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="-6 5.9 1"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 0; autoplay: false; startEvents: startBlink"
         ></a-sphere>
         <a-sphere
           position="-6 5.9 3"
           radius="0.08"
           color="#FFD86B"
-          opacity="0.95"
+          material="emissive: #FFD86B; emissiveIntensity: 0"
+          animation__blink="property: material.emissiveIntensity; from: 0; to: 1.2; dur: 1400; dir: alternate; loop: true; easing: easeInOutQuad; delay: 500; autoplay: false; startEvents: startBlink"
         ></a-sphere>
       </a-entity>
 
