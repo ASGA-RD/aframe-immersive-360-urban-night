@@ -1,1 +1,1 @@
-# aframe-immersive-360-urban-night
+# aframe-immersive-360-xmas-night
