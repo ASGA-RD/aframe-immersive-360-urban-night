@@ -25,6 +25,11 @@
         const generator = document.querySelector("#generator");
         const genSmoke = document.querySelector("#gen-smoke");
 
+        const bgMusic = document.querySelector("#bgMusic");
+
+        bgMusic.loop = true;
+        bgMusic.volume = 0.25;
+
         const luzesNatal = document.querySelectorAll("#luzes-natal a-sphere");
 
         genSmoke.setAttribute("visible", false);
@@ -98,9 +103,12 @@
             // animação Blink_
             luz.emit("startBlink");
           });
+
+          if (bgMusic.paused) {
+            bgMusic.play().catch(() => {});
+          }
         });
       });
-
     </script>
   </head>
 
@@ -111,9 +119,12 @@
         <a-asset-item id="a-npc1" src="assets/chapeu.glb"></a-asset-item>
         <a-asset-item id="a-npc2" src="assets/azul.glb"></a-asset-item>
         <a-asset-item id="a-npc3" src="assets/castanho.glb"></a-asset-item>
+        <audio
+          id="bgMusic"
+          src="assets/christmas-royalty-free-tis-the-season.mp3"
+          crossorigin="anonymous"
+        ></audio>
       </a-assets>
-
-
 
       <a-sky src="#foto360" rotation="0 -90 0"></a-sky>
 
