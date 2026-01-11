@@ -28,7 +28,7 @@
         const bgMusic = document.querySelector("#bgMusic");
 
         bgMusic.loop = true;
-        bgMusic.volume = 0.25;
+        bgMusic.volume = 0.3;
 
         const luzesNatal = document.querySelectorAll("#luzes-natal a-sphere");
 
@@ -107,6 +107,11 @@
           if (bgMusic.paused) {
             bgMusic.play().catch(() => {});
           }
+
+          // Ativar notas musicais
+          document.querySelectorAll(".musical-note").forEach((note) => {
+            note.setAttribute("visible", true);
+          });
         });
       });
     </script>
@@ -305,6 +310,51 @@
             position="0 -0.18 0.16"
             color="#444"
           ></a-cylinder>
+
+          <!-- Notas musicais -->
+          <a-entity
+            class="musical-note"
+            visible="false"
+            position="0.3 0.5 0.3"
+            animation__float="property: position; from: 0.3 0.5 0.3; to: 0.3 1.5 0.3; dur: 2000; easing: linear; loop: true"
+          >
+            <a-sphere
+              radius="0.08"
+              color="#FFD86B"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-sphere>
+            <a-cylinder
+              radius="0.015"
+              height="0.35"
+              color="#FFD86B"
+              position="0.06 0.175 0"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-cylinder>
+          </a-entity>
+
+          <a-entity
+            class="musical-note"
+            visible="false"
+            position="-0.2 0.6 0.3"
+            animation__float="property: position; from: -0.2 0.6 0.3; to: -0.2 1.6 0.3; dur: 2500; easing: linear; loop: true; delay: 800"
+          >
+            <a-sphere
+              radius="0.07"
+              color="#FFD86B"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-sphere>
+            <a-cylinder
+              radius="0.013"
+              height="0.3"
+              color="#FFD86B"
+              position="0.05 0.15 0"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-cylinder>
+          </a-entity>
         </a-entity>
 
         <!-- poste 2 -->
@@ -348,6 +398,51 @@
             position="0 -0.18 0.16"
             color="#444"
           ></a-cylinder>
+
+          <!-- Notas musicais -->
+          <a-entity
+            class="musical-note"
+            visible="false"
+            position="0.3 0.5 0.3"
+            animation__float="property: position; from: 0.3 0.5 0.3; to: 0.3 1.5 0.3; dur: 2000; easing: linear; loop: true"
+          >
+            <a-sphere
+              radius="0.08"
+              color="#FFD86B"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-sphere>
+            <a-cylinder
+              radius="0.015"
+              height="0.35"
+              color="#FFD86B"
+              position="0.06 0.175 0"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-cylinder>
+          </a-entity>
+
+          <a-entity
+            class="musical-note"
+            visible="false"
+            position="-0.2 0.6 0.3"
+            animation__float="property: position; from: -0.2 0.6 0.3; to: -0.2 1.6 0.3; dur: 2500; easing: linear; loop: true; delay: 800"
+          >
+            <a-sphere
+              radius="0.07"
+              color="#FFD86B"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-sphere>
+            <a-cylinder
+              radius="0.013"
+              height="0.3"
+              color="#FFD86B"
+              position="0.05 0.15 0"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-cylinder>
+          </a-entity>
         </a-entity>
 
         <!-- poste 3 (npc3) -->
@@ -391,6 +486,51 @@
             position="0 -0.18 0.16"
             color="#444"
           ></a-cylinder>
+
+          <!-- Notas musicais -->
+          <a-entity
+            class="musical-note"
+            visible="false"
+            position="0.3 0.5 0.3"
+            animation__float="property: position; from: 0.3 0.5 0.3; to: 0.3 1.5 0.3; dur: 2000; easing: linear; loop: true"
+          >
+            <a-sphere
+              radius="0.08"
+              color="#FFD86B"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-sphere>
+            <a-cylinder
+              radius="0.015"
+              height="0.35"
+              color="#FFD86B"
+              position="0.06 0.175 0"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-cylinder>
+          </a-entity>
+
+          <a-entity
+            class="musical-note"
+            visible="false"
+            position="-0.2 0.6 0.3"
+            animation__float="property: position; from: -0.2 0.6 0.3; to: -0.2 1.6 0.3; dur: 2500; easing: linear; loop: true; delay: 800"
+          >
+            <a-sphere
+              radius="0.07"
+              color="#FFD86B"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-sphere>
+            <a-cylinder
+              radius="0.013"
+              height="0.3"
+              color="#FFD86B"
+              position="0.05 0.15 0"
+              material="emissive: #FFD86B; emissiveIntensity: 1.2"
+              animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+            ></a-cylinder>
+          </a-entity>
         </a-entity>
 
         <!-- poste 4 -->
@@ -435,6 +575,51 @@
           position="0 -0.18 0.16"
           color="#444"
         ></a-cylinder>
+
+        <!-- Notas musicais -->
+        <a-entity
+          class="musical-note"
+          visible="false"
+          position="0.3 0.5 0.3"
+          animation__float="property: position; from: 0.3 0.5 0.3; to: 0.3 1.5 0.3; dur: 2000; easing: linear; loop: true"
+        >
+          <a-sphere
+            radius="0.08"
+            color="#FFD86B"
+            material="emissive: #FFD86B; emissiveIntensity: 1.2"
+            animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+          ></a-sphere>
+          <a-cylinder
+            radius="0.015"
+            height="0.35"
+            color="#FFD86B"
+            position="0.06 0.175 0"
+            material="emissive: #FFD86B; emissiveIntensity: 1.2"
+            animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+          ></a-cylinder>
+        </a-entity>
+
+        <a-entity
+          class="musical-note"
+          visible="false"
+          position="-0.2 0.6 0.3"
+          animation__float="property: position; from: -0.2 0.6 0.3; to: -0.2 1.6 0.3; dur: 2500; easing: linear; loop: true; delay: 800"
+        >
+          <a-sphere
+            radius="0.07"
+            color="#FFD86B"
+            material="emissive: #FFD86B; emissiveIntensity: 1.2"
+            animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+          ></a-sphere>
+          <a-cylinder
+            radius="0.013"
+            height="0.3"
+            color="#FFD86B"
+            position="0.05 0.15 0"
+            material="emissive: #FFD86B; emissiveIntensity: 1.2"
+            animation__fade="property: material.opacity; keyframes: 0:0; 0.15:0.35; 0.85:0.12; 1:0; dur: 2000; easing: linear; loop: true"
+          ></a-cylinder>
+        </a-entity>
       </a-entity>
 
       <!-- Luzes de Natal  -->
